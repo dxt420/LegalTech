@@ -1,0 +1,97 @@
+<!--
+  Generated template for the ExhibitorsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!--
+  Generated template for the SponsorsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+      <ion-title>Exhibitors</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content>
+  
+      <ion-item-group>
+          <ion-item-divider color="secondary">A</ion-item-divider>
+      
+              <button ion-item *ngFor="let exhibitor of exhibitors" (click)="openItem(item)">
+                  <ion-avatar item-start>
+                    <img [src]="'../../assets/img/trip.jpg'">
+                  </ion-avatar><br>
+                  <h2>{{ exhibitor.name }}</h2>
+                  <p>{{ exhibitor.info }}</p>
+                
+                </button>
+        
+        </ion-item-group>
+
+
+        <ion-item-group>
+          <ion-item-divider color="secondary">A</ion-item-divider>
+      
+              <button ion-item *ngFor="let exhibitor of exhibitors" (click)="openItem(item)">
+                  <ion-avatar item-start>
+                    <img [src]="'../../assets/img/trip.jpg'">
+                  </ion-avatar><br>
+                  <h2>{{ exhibitor.name }}</h2>
+                  <p>{{ exhibitor.info }}</p>
+                
+                </button>
+        
+        </ion-item-group>
+      
+        <ion-item-group>
+            <ion-item-divider color="secondary">Gold</ion-item-divider>
+            <button ion-item (click)="openItem(item)">
+                <ion-avatar item-start>
+                  <img [src]="'../../assets/img/trip.jpg'">
+                </ion-avatar><br>
+                <h2>IBM</h2>
+                <p>IBM Business</p>
+              
+              </button>
+          </ion-item-group>
+      
+          <ion-item-group>
+              <ion-item-divider color="secondary">Silver</ion-item-divider>
+              <ion-item (click)="openItem(item)">
+                  <ion-avatar item-start>
+                    <img [src]="'../../assets/img/trip.jpg'">
+                  </ion-avatar><br>
+                  <h2>Bill2Pay</h2>
+                  <p>Bill2Pay</p>
+                
+                </ion-item>
+  
+                <ion-item (click)="openItem(item)">
+                    <ion-avatar item-start>
+                      <img [src]="'../../assets/img/trip.jpg'">
+                    </ion-avatar><br>
+                    <h2>Certified Payments</h2>
+                    <p>Certified Payments</p>
+                  
+                  </ion-item>
+  
+                  <ion-item (click)="openItem(item)">
+                      <ion-avatar item-start>
+                        <img [src]="'../../assets/img/trip.jpg'">
+                      </ion-avatar><br>
+                      <h2>ESRI</h2>
+                      <p>ESRI </p>
+                    
+                    </ion-item>
+            </ion-item-group>
+  
+            
+  </ion-content>
+  

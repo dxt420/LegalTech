@@ -1,0 +1,12 @@
+page-home {
+
+    .d{
+        color:rgba(255, 255, 255, 0.767);
+        background-color:  rgb(229, 117, 25);
+    }
+    
+    .d[aria-selected=true] {
+        color:white;
+        background-color:  rgb(229, 117, 25);
+    }
+}

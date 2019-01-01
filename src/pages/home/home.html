@@ -1,0 +1,94 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Activity Feed</ion-title>
+  </ion-navbar>
+
+  <ion-segment [(ngModel)]="abc"  mode="md">
+
+      <ion-segment-button  value="tracks" class="d" >
+          Event Feed
+      </ion-segment-button>
+      <ion-segment-button value="artists" class="d">
+          SocialWall
+      </ion-segment-button>
+     
+      <ion-segment-button value="playlist" class="d">
+          Notifications
+      </ion-segment-button>
+
+  </ion-segment>
+
+</ion-header>
+
+
+<ion-content (pan)='swipeEvent($event)' >
+
+
+    <div [ngSwitch]="abc">
+    <ion-list no-lines *ngSwitchCase="'tracks'">
+        <button detail-none ion-item  *ngFor="let track of tracks; let i = index;" (click)="track.playing ? pauseTrack(track) : playTrack(track)"
+            [ngClass]="{ 'alternate': i % 2, 'playing': track.playing }">
+            <ion-avatar item-left>
+                <img [src]="'../../assets/img/woods.jpg'">
+                <ion-spinner item-right *ngIf="track.playing" name="bubbles" item-left></ion-spinner>
+            </ion-avatar>
+            <h2>{{track.artist}}</h2>
+            <p>{{track.title}}</p>
+        </button>
+    </ion-list>
+
+    <div *ngSwitchCase="'artists'">
+            
+        <ion-grid>
+            <ion-row>
+                <ion-col no-lines *ngFor="let track of tracks" col-4 id="art">
+                    <ion-avatar id="jj">
+                        <img [src]="'../../assets/img/woods.jpg'">
+        
+                    </ion-avatar>
+        
+                    <p class="artName">
+                        {{track.artist}}
+                    </p>
+        
+                </ion-col>
+        
+            </ion-row>
+        </ion-grid>
+            
+    </div>
+
+    <div *ngSwitchCase="'playlist'">
+            <ion-fab left top >
+                    <button ion-fab mini (click)="(addItem())" >
+                        <ion-icon style="color:white" name="add"></ion-icon>
+                    </button>
+                </ion-fab>
+        <ion-grid >
+            <ion-row >
+              <ion-col style="margin-bottom:10px;background-color: rgba(255,255,255,0.1);border-radius:2px;" no-lines *ngFor="let track of tracks" col-12 id="art2">
+                <ion-avatar id="kk">
+                  <img [src]="'../../assets/img/woods.jpg'">
+            
+                </ion-avatar>
+                
+                <p class="artName">
+                    {{track.artist}}
+                </p>
+              
+              </ion-col>
+              
+              </ion-row>
+            </ion-grid>
+    </div>
+
+    </div>
+
+
+
+
+</ion-content>
+
+
+
