@@ -13,32 +13,22 @@
 </ion-header>
 
 
-<ion-content>
-  <div class="item-profile" text-center #profilePic [style.background-image]="'url(' + item.profilePic + ')'" style="height:100px;">
-  </div>
-
-  <!-- <ion-item-group>
-     
-    <button ion-item *ngFor="let s of social">
-       
-        <h2>{{ s.name }}</h2>
-       
-      
-      </button>
-  </ion-item-group> -->
+<ion-content class="bg">
+  <!-- <div class="item-profile" text-center #profilePic [style.background-image]="'url(' + item.profilePic + ')'" style="height:100px;">
+  </div> -->
 
 
   <ion-item-group>
-    <button ion-item>
+    <ion-item no-lines class="transparent">
       <h2>Facebook</h2>
-    </button>
+    </ion-item>
 
-    <button ion-item>
+    <ion-item no-lines class="transparent">
       <h2>Twitter</h2>
-    </button>
+    </ion-item>
 
-    <button ion-item>
+    <ion-item no-lines class="transparent">
       <h2>Linkedin</h2>
-    </button>
+    </ion-item>
   </ion-item-group>
 </ion-content>

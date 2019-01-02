@@ -13,12 +13,12 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content class="bg">
 
     <ion-item-group>
-        <ion-item-divider color="secondary">Platinum</ion-item-divider>
+        <ion-item-divider class="transparent2">Platinum</ion-item-divider>
     
-            <ion-item no-lines (click)="openItem(item)" *ngFor="let s of item.extra.sponsors">
+            <ion-item  class="transparent" no-lines (click)="getCompanyP(s.name); openItem(s,'SponsorDetailsPage')" *ngFor="let s of item.extra.sponsors.platinum">
                 <ion-avatar item-start>
                   <img [src]="'../../assets/img/trip.jpg'">
                 </ion-avatar> 
@@ -33,45 +33,29 @@
       
     
       <ion-item-group>
-          <ion-item-divider color="secondary">Gold</ion-item-divider>
-          <ion-item no-lines (click)="openItem(item)">
+          <ion-item-divider class="transparent2">Gold</ion-item-divider>
+          <ion-item  class="transparent" no-lines (click)="getCompanyG(s.name); openItem(s,'SponsorDetailsPage')" *ngFor="let s of item.extra.sponsors.gold">
               <ion-avatar item-start>
                 <img [src]="'../../assets/img/trip.jpg'">
               </ion-avatar> 
-              <h2>IBM</h2>
-              <p>IBM Business</p>
+              <h2>{{ s.name}}</h2>
+                <p>{{ s.info }}</p>
             
             </ion-item>
         </ion-item-group>
     
         <ion-item-group>
-            <ion-item-divider color="secondary">Silver</ion-item-divider>
-            <ion-item no-lines (click)="openItem(item)">
+            <ion-item-divider class="transparent2">Silver</ion-item-divider>
+            <ion-item  class="transparent" no-lines (click)="getCompanyS(s.name); openItem(s,'SponsorDetailsPage')" *ngFor="let s of item.extra.sponsors.silver">
                 <ion-avatar item-start>
                   <img [src]="'../../assets/img/trip.jpg'">
                 </ion-avatar> 
-                <h2>Bill2Pay</h2>
-                <p>Bill2Pay</p>
+                <h2>{{ s.name}}</h2>
+                <p>{{ s.info }}</p>
               
               </ion-item>
 
-              <ion-item no-lines (click)="openItem(item)">
-                  <ion-avatar item-start>
-                    <img [src]="'../../assets/img/trip.jpg'">
-                  </ion-avatar> 
-                  <h2>Certified Payments</h2>
-                  <p>Certified Payments</p>
-                
-                </ion-item>
-
-                <ion-item no-lines (click)="openItem(item)">
-                    <ion-avatar item-start>
-                      <img [src]="'../../assets/img/trip.jpg'">
-                    </ion-avatar> 
-                    <h2>ESRI</h2>
-                    <p>ESRI </p>
-                  
-                  </ion-item>
+             
           </ion-item-group> 
 
           

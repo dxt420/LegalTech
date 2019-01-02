@@ -1,12 +1,40 @@
 page-home {
 
-    .d{
-        color:rgba(255, 255, 255, 0.767);
-        background-color:  rgb(229, 117, 25);
+  
+    .dx{
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 10px;
     }
     
-    .d[aria-selected=true] {
-        color:white;
-        background-color:  rgb(229, 117, 25);
+   
+
+    .segment-ios .segment-button.segment-activated {
+        color: white;
+        background-color:  rgb(74, 140, 245);
+    }
+
+    .bg{
+        background-image: url('../../assets/img/event/bg.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+      
+      }
+
+      .transparent{
+        background-color: rgba(0, 0, 0, 0.21);
+    }
+
+    .transparent2{
+        background-color: rgba(0, 0, 0, 0.61);
+    }
+
+
+    ion-badge {
+		// position: absolute;
+		// top: -0.2rem;
+		// right: -0.2rem;
+        opacity: 0.6;
+        
     }
 }

@@ -6,7 +6,13 @@
         </button> -->
 
     <!-- <ion-title text-left>{{ item.name }}</ion-title> -->
-    <ion-title *ngIf="!isOn" text-left>LegalTech Conference<span style="color:rgb(74, 140, 245);">'19</span></ion-title>
+
+    <ion-buttons *ngIf="!isOn" start>
+        <button ion-button class="logo">
+           <img [src]="'../../assets/img/event/logo.png'">
+              </button>
+        </ion-buttons>
+    <!-- <ion-title *ngIf="!isOn" text-left>LegalTech Conference<span style="color:rgb(74, 140, 245);">'19</span></ion-title> -->
     <ion-buttons end>
     <button (click)="toggleSearch()" ion-button >
             <ion-icon name="search"></ion-icon>
@@ -20,8 +26,8 @@
 
 
 <ion-content class="bg">
-  <div class="item-profile" text-center #profilePic [style.background-image]="'url(' + item.profilePic + ')'" style="height:170px;">
-  </div>
+  <!-- <div class="item-profile" text-center #profilePic [style.background-image]="'url(' + item.profilePic + ')'" style="height:170px;">
+  </div> -->
 
 
   <ion-grid>

@@ -18,31 +18,18 @@
   <ion-item-group   *ngFor="let group of groupedSpeakers">
     <ion-item-divider color="secondary">{{ group.letter }}</ion-item-divider>
 
-        <button ion-item no-lines class="transparent" *ngFor="let speaker of group.speakers; let company of companies">
+        <ion-item no-lines class="transparent" *ngFor="let speaker of group.speakers, let i = index" (click)="getCompany2(speaker); openItem(speaker,'SpeakerDetailsPage')">
             <ion-avatar item-start>
               <img [src]="'../../assets/img/trip.jpg'">
             </ion-avatar>
             <h2>{{ speaker }}</h2>
-            <p>{{ company }}</p>
+            <p>{{ getCompany(speaker) }}</p>
           
-          </button>
+          </ion-item>
   
   </ion-item-group>
 
-  <!-- <ion-list *ngFor="let header of alphaHeaders">
-     
-    <ng-container *ngIf="speakers?.length">
-        <ion-item-divider color="secondary">{{ header }}</ion-item-divider>
-      <button ion-item *ngFor="let speaker of speakers">
-          <ion-avatar item-start>
-            <img [src]="'../../assets/img/trip.jpg'">
-          </ion-avatar><br>
-          <h2>{{ speaker.name }}</h2>
-          <p>{{ speaker.info }}</p>
-        
-        </button>
-      </ng-container>
-    </ion-list> -->
+
 
 
 </ion-content>

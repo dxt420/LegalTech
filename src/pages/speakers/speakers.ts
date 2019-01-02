@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Item } from '../../models/item';
 
 
 
@@ -12,35 +13,45 @@ export class SpeakersPage {
 
   xx;
   speakers;
-  companies;
   groupedSpeakers = [];
+  item;
+  details = [];
+  company;
 
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
     this.xx = navParams.get('speakers');
-  
+    this.item = navParams.get('item');
+
     this.speakers = this.xx.map(a => a.name);
-    this.companies = this.xx.map(a => a.company);
+    
 
-    console.log(this.companies);
+    console.log(this.xx);
 
-    // let sortable = [];
-    // for(var a in this.xx){
-    //   sortable.push([a, this.xx[a]]);
-    // }
-
-    // sortable.sort(function(a,b){
-    //   return a[1] - b[1];
-    // });
-
-
-    // console.log(sortable);
     this.groupSpeakers(this.speakers);
 
   }
 
+
+  getCompany(a: string){
+    let aa = this.xx.find(i => i.name === a);
+    console.log(aa);
+    return aa.company;
+  }
+
+  getCompany2(a: string){
+    let aa = this.xx.find(i => i.name === a);
+    this.company = aa.company.toString();
+   
+  }
+
+  getDetails(a: string){
+    let aa = this.xx.find(i => i.name === a);
+    console.log(aa);
+    this.details = aa;
+  }
   groupSpeakers(speakers){
     let sortedSpeakers = speakers.sort();
     let currentLetter = false;
@@ -65,6 +76,17 @@ export class SpeakersPage {
 
         currentSpeakers.push(value);
     });
+  }
+
+
+  openItem(item: Item,page: string) {
+    this.navCtrl.push(page.toString(), {
+      speaker: item,
+      company: this.company
+    });
+
+    console.log(item);
+    console.log(this.company);
   }
 
   ionViewDidLoad() {

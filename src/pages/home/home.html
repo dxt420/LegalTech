@@ -1,20 +1,22 @@
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar >
     <ion-title>Activity Feed</ion-title>
   </ion-navbar>
 
-  <ion-segment [(ngModel)]="abc"  mode="md">
+  <ion-segment [(ngModel)]="abc" class="dx"  >
 
-      <ion-segment-button  value="tracks" class="d" >
+      <ion-segment-button  value="feed" class="d" >
           Event Feed
       </ion-segment-button>
-      <ion-segment-button value="artists" class="d">
+      <ion-segment-button value="social" class="d">
           SocialWall
       </ion-segment-button>
      
-      <ion-segment-button value="playlist" class="d">
+      <ion-segment-button value="notifications" class="d">
           Notifications
+          <!-- <ion-badge *ngIf="n" color="accent">{{ n }}</ion-badge> -->
+          <ion-badge color="danger">3</ion-badge>
       </ion-segment-button>
 
   </ion-segment>
@@ -22,65 +24,108 @@
 </ion-header>
 
 
-<ion-content (pan)='swipeEvent($event)' >
+<ion-content class="bg" (pan)='swipeEvent($event)' >
 
 
     <div [ngSwitch]="abc">
-    <ion-list no-lines *ngSwitchCase="'tracks'">
-        <button detail-none ion-item  *ngFor="let track of tracks; let i = index;" (click)="track.playing ? pauseTrack(track) : playTrack(track)"
-            [ngClass]="{ 'alternate': i % 2, 'playing': track.playing }">
-            <ion-avatar item-left>
-                <img [src]="'../../assets/img/woods.jpg'">
-                <ion-spinner item-right *ngIf="track.playing" name="bubbles" item-left></ion-spinner>
-            </ion-avatar>
-            <h2>{{track.artist}}</h2>
-            <p>{{track.title}}</p>
-        </button>
-    </ion-list>
+    <div *ngSwitchCase="'feed'">
+       
 
-    <div *ngSwitchCase="'artists'">
+            <ion-card class="transparent" *ngFor="let item of cardItems">
+
+                    <ion-item class="transparent2">
+                      <ion-avatar item-start>
+                        <img [src]="item.user.avatar">
+                      </ion-avatar>
+                      <h2 >{{item.user.name}}</h2>
+                      <!-- <p>{{item.date}}</p> -->
+                    </ion-item>
+                
+                    <img [src]="item.image">
+                
+                    <ion-card-content>
+                      <p>{{item.content}}</p>
+                    </ion-card-content>
+                
+                    <ion-row>
+                      <!-- <ion-col>
+                        <button ion-button color="primary" clear small icon-start>
+                            <ion-icon name='thumbs-up'></ion-icon>
+                            12 Likes
+                          </button>
+                      </ion-col>
+                      <ion-col>
+                        <button ion-button color="primary" clear small icon-start>
+                            <ion-icon name='text'></ion-icon>
+                            4 Comments
+                          </button>
+                      </ion-col> -->
+                      <ion-col center text-center>
+                        <ion-note>
+                          11h ago
+                        </ion-note>
+                      </ion-col>
+                    </ion-row>
+                  </ion-card>
+                </div>
+
+    <div *ngSwitchCase="'social'">
             
-        <ion-grid>
-            <ion-row>
-                <ion-col no-lines *ngFor="let track of tracks" col-4 id="art">
-                    <ion-avatar id="jj">
-                        <img [src]="'../../assets/img/woods.jpg'">
-        
-                    </ion-avatar>
-        
-                    <p class="artName">
-                        {{track.artist}}
-                    </p>
-        
-                </ion-col>
-        
-            </ion-row>
-        </ion-grid>
+            <ion-card class="transparent" *ngFor="let item of cardItems">
+
+                    
+                
+                    <ion-card-content>
+                      <p>{{item.content}}</p>
+                    </ion-card-content>
+                
+                    <ion-row>
+                      <ion-col>
+                        <button ion-button color="primary" clear small icon-start>
+                            <ion-icon name='thumbs-up'></ion-icon>
+                            12 Likes
+                          </button>
+                      </ion-col>
+                      <ion-col>
+                        <button ion-button color="primary" clear small icon-start>
+                            <ion-icon name='text'></ion-icon>
+                            4 Comments
+                          </button>
+                      </ion-col>
+                      <ion-col center text-center>
+                        <ion-note>
+                          22m ago
+                        </ion-note>
+                      </ion-col>
+                    </ion-row>
+                  </ion-card>
             
     </div>
 
-    <div *ngSwitchCase="'playlist'">
-            <ion-fab left top >
+    <div *ngSwitchCase="'notifications'">
+            <!-- <ion-fab left top >
                     <button ion-fab mini (click)="(addItem())" >
                         <ion-icon style="color:white" name="add"></ion-icon>
-                    </button>
-                </ion-fab>
-        <ion-grid >
-            <ion-row >
-              <ion-col style="margin-bottom:10px;background-color: rgba(255,255,255,0.1);border-radius:2px;" no-lines *ngFor="let track of tracks" col-12 id="art2">
-                <ion-avatar id="kk">
-                  <img [src]="'../../assets/img/woods.jpg'">
-            
-                </ion-avatar>
+                    </ion-item>
+                </ion-fab> -->
+       
+                <ion-card class="transparent" *ngFor="let item of cardItems">
+
+                    
                 
-                <p class="artName">
-                    {{track.artist}}
-                </p>
-              
-              </ion-col>
-              
-              </ion-row>
-            </ion-grid>
+                        <ion-card-content>
+                          <p>{{item.content}}</p>
+                        </ion-card-content>
+                    
+                        <ion-row>
+                         
+                          <ion-col center text-center>
+                            <ion-note>
+                              Tue 10th
+                            </ion-note>
+                          </ion-col>
+                        </ion-row>
+                      </ion-card>
     </div>
 
     </div>

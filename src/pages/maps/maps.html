@@ -7,12 +7,23 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>maps</ion-title>
+    <ion-title>Map</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content class="bg">
 
+  <ion-item-group   *ngFor="let group of groupedMaps">
+    <ion-item-divider class="transparent2">{{ group.letter }}</ion-item-divider>
+
+        <ion-item no-lines class="transparent" *ngFor="let m of group.maps">
+            
+            <h2>{{ m }}</h2>
+          
+          
+          </ion-item>
+  
+  </ion-item-group>
 </ion-content>

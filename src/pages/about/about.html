@@ -13,19 +13,18 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content class="bg">
 
-  <ion-item-group>
-    <!-- <ion-item-divider color="secondary">Platinum</ion-item-divider> -->
+  <ion-item-group   *ngFor="let group of groupedAbout">
+    <ion-item-divider class="transparent2">{{ group.letter }}</ion-item-divider>
 
-        <button ion-item *ngFor="let about of item.extra.about" >
-            <ion-avatar item-start>
-              <img [src]="'../../assets/img/trip.jpg'">
-            </ion-avatar><br>
-            <h2>{{ about.name }}</h2>
-            <!-- <p>{{ a.info }}</p> -->
+        <ion-item no-lines class="transparent" *ngFor="let a of group.about, let i = index">
+            
+            <h2>{{ a }}</h2>
           
-          </button>
+          
+          </ion-item>
   
   </ion-item-group>
 </ion-content>
+

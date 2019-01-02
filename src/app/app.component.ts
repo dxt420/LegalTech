@@ -33,6 +33,7 @@ import { Settings } from '../providers';
 
   </ion-menu>
   <ion-nav #content [root]="rootPage"></ion-nav>`
+ 
 })
 export class MyApp {
   rootPage = MainPage;
