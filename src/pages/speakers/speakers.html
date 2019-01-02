@@ -7,7 +7,16 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Speakers</ion-title>
+    <ion-title *ngIf="!isOn">Speakers</ion-title>
+
+    <ion-buttons end>
+      <button (click)="toggleSearch()" ion-button >
+              <ion-icon name="search"></ion-icon>
+            </button>
+      </ion-buttons>
+
+    <!-- <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="setFilteredItems()" *ngIf="isOn" placeholder="Search Speakers"></ion-searchbar> -->
+    <ion-searchbar *ngIf="isOn" placeholder="Search Speakers"></ion-searchbar>
   </ion-navbar>
 
 </ion-header>
@@ -15,7 +24,7 @@
 
 <ion-content class="bg">
 
-  <ion-item-group   *ngFor="let group of groupedSpeakers">
+  <ion-item-group    *ngFor="let group of groupedSpeakers">
     <ion-item-divider color="secondary">{{ group.letter }}</ion-item-divider>
 
         <ion-item no-lines class="transparent" *ngFor="let speaker of group.speakers, let i = index" (click)="getCompany2(speaker); openItem(speaker,'SpeakerDetailsPage')">
@@ -26,8 +35,14 @@
             <p>{{ getCompany(speaker) }}</p>
           
           </ion-item>
+
+
+    
   
   </ion-item-group>
+
+
+
 
 
 

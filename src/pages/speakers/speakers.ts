@@ -14,13 +14,20 @@ export class SpeakersPage {
   xx;
   speakers;
   groupedSpeakers = [];
+  groupedSpeakers2 = [];
   item;
   details = [];
   company;
 
+  searchTerm: string = '';
+  searchItems: any;
+
+  private isOn: boolean = false;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+    
 
     this.xx = navParams.get('speakers');
     this.item = navParams.get('item');
@@ -32,9 +39,28 @@ export class SpeakersPage {
 
     this.groupSpeakers(this.speakers);
 
+    // this.setFilteredItems();
+
   }
 
 
+  setFilteredItems() {
+    
+    this.searchItems = this.filterItems(this.searchTerm);
+    console.log( this.searchItems);
+    let x = this.searchItems = this.xx.map(a => a.name);
+    this.groupSpeakers2(x);
+
+}
+
+  
+  filterItems(searchTerm){
+ 
+    return this.xx.filter((item) => {
+        return item.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
+    });    
+
+}
   getCompany(a: string){
     let aa = this.xx.find(i => i.name === a);
     console.log(aa);
@@ -52,7 +78,14 @@ export class SpeakersPage {
     console.log(aa);
     this.details = aa;
   }
+
+  toggleSearch(){
+    this.isOn = !this.isOn;
+  }
+
+
   groupSpeakers(speakers){
+    
     let sortedSpeakers = speakers.sort();
     let currentLetter = false;
     let currentSpeakers = [];
@@ -70,6 +103,32 @@ export class SpeakersPage {
 
             currentSpeakers = newGroup.speakers;
             this.groupedSpeakers.push(newGroup);
+
+
+        }
+
+        currentSpeakers.push(value);
+    });
+  }
+
+  groupSpeakers2(speakers){
+    let sortedSpeakers = speakers.sort();
+    let currentLetter = false;
+    let currentSpeakers = [];
+
+    // console.log(sortedSpeakers);
+
+    sortedSpeakers.forEach((value, index) => {
+        if (value.charAt(0) != currentLetter) {
+            currentLetter = value.charAt(0);
+            
+            let newGroup = {
+              letter: currentLetter,
+              speakers: []
+            };
+
+            currentSpeakers = newGroup.speakers;
+            this.groupedSpeakers2.push(newGroup);
 
 
         }

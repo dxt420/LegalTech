@@ -29,3 +29,20 @@
 
 }
 
+
+.toolbar .searchbar-ios .searchbar-input {
+    background: white;
+}
+
+
+.toolbar .searchbar-md .searchbar-input {
+    background: white;
+}
+.searchbar-ios.searchbar-left-aligned .searchbar-search-icon {
+    display: none;
+}
+
+.searchbar-md.searchbar-left-aligned .searchbar-search-icon {
+    display: none;
+}
+

@@ -14,24 +14,24 @@
 
 
 <ion-content class="bg">
-    <ion-item-divider class="transparent2">Wednesday 6th, February 2019</ion-item-divider>
+    <ion-item-divider text-center class="transparent2">Wednesday 6th, February 2019</ion-item-divider>
     <ion-item-group >
         
     
-            <ion-item class="transparent" >
+            <ion-item no-lines *ngFor="let s of xx" class="transparent" (click)="openItem(s,'ScheduleDetailsPage')">
                 
-                <h2>09:00 - 09:30</h2>
-                <p>Welcome Remarks</p>
+                <h2 style="color:#00b7ff;">{{ s.time }}</h2>
+                <h1>{{ s.title }}</h1>
                 <div class="faces">
-                <ion-avatar >
+                <ion-avatar  *ngFor="let a of s.speakers">
                     <img [src]="'../../assets/img/trip.jpg'">
                   </ion-avatar>
-                  <ion-avatar >
+                  <!-- <ion-avatar >
                       <img [src]="'../../assets/img/trip.jpg'">
                     </ion-avatar>
                     <ion-avatar >
                         <img [src]="'../../assets/img/trip.jpg'">
-                      </ion-avatar>
+                      </ion-avatar> -->
 
                     </div>
               </ion-item>

@@ -41,6 +41,7 @@ export class ItemDetailPage {
       maps: this.item.extra.maps,
       attendees: this.item.extra.attendees,
       about: this.item.extra.about,
+      schedule: this.item.extra.schedule,
       item: this.item,
     });
   }
