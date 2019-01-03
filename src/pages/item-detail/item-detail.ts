@@ -46,4 +46,9 @@ export class ItemDetailPage {
     });
   }
   
+
+  ionViewDidLeave(){
+    this.isOn = !true;
+  }
+  
 }

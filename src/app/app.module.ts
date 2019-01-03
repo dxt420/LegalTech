@@ -13,6 +13,7 @@ import { Items } from '../mocks/providers/items';
 import { Settings, User, Api } from '../providers';
 import { MyApp } from './app.component';
 import { DataProvider } from '../providers/data/data';
+import { SearchPipe } from '../pipes/search/search';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -37,7 +38,8 @@ export function provideSettings(storage: Storage) {
 
 @NgModule({
   declarations: [
-    MyApp
+    MyApp,
+    
   ],
   imports: [
     BrowserModule,
@@ -56,7 +58,8 @@ export function provideSettings(storage: Storage) {
         }
       }
     }),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    // SearchPipe.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [

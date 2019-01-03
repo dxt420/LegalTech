@@ -23,6 +23,7 @@ export class SpeakersPage {
   searchItems: any;
 
   private isOn: boolean = false;
+  private isOn2: boolean = false;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
@@ -44,18 +45,25 @@ export class SpeakersPage {
   }
 
 
+  
+  
   setFilteredItems() {
     
     this.searchItems = this.filterItems(this.searchTerm);
-    console.log( this.searchItems);
-    let x = this.searchItems = this.xx.map(a => a.name);
+    console.log( "set filter");
+    let x = this.speakers = this.xx.map(a => a.name);
     this.groupSpeakers2(x);
 
 }
 
   
   filterItems(searchTerm){
- 
+    this.isOn2 = !false;
+    console.log( "filter items");
+    if (searchTerm.length<1) {
+      this.isOn2 = false;
+      // console.log( "buddah items");
+    }
     return this.xx.filter((item) => {
         return item.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
     });    
@@ -65,6 +73,12 @@ export class SpeakersPage {
     let aa = this.xx.find(i => i.name === a);
     console.log(aa);
     return aa.company;
+  }
+
+  getPic(a: string){
+    let aa = this.xx.find(i => i.name === a);
+    console.log(aa);
+    return aa.profilePic;
   }
 
   getCompany2(a: string){
@@ -106,6 +120,7 @@ export class SpeakersPage {
 
 
         }
+        // this.groupedSpeakers = [];
 
         currentSpeakers.push(value);
     });
