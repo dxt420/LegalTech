@@ -22,6 +22,10 @@ export class SponsorsPage {
   gold;
   silver;
 
+
+  picG;
+  picP;
+  picS;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.item = navParams.get('item');
     this.platinum = navParams.get('platinum');
@@ -34,6 +38,38 @@ export class SponsorsPage {
     console.log('ionViewDidLoad SponsorsPage');
   }
 
+
+
+  getPicP(a: string){
+    let aa = this.platinum.find(i => i.name === a);
+    console.log(aa);
+    return aa.profilePic;
+  }
+  getPicG(a: string){
+    let aa = this.gold.find(i => i.name === a);
+    console.log(aa);
+    return aa.profilePic;
+  }
+  getPicS(a: string){
+    let aa = this.silver.find(i => i.name === a);
+    console.log(aa);
+    return aa.profilePic;
+  }
+  getPic2P(a: string){
+    let aa = this.platinum.find(i => i.name === a);
+    this.picP = aa.profilePic.toString();
+  }
+
+  getPic2G(a: string){
+    let aa = this.gold.find(i => i.name === a);
+    this.picG = aa.profilePic.toString();
+  }
+
+  getPic2S(a: string){
+    let aa = this.silver.find(i => i.name === a);
+    this.picS = aa.profilePic.toString();
+  }
+  
 
   getCompanyP(a: string){
     let aa = this.platinum.find(i => i.name === a);
@@ -56,7 +92,10 @@ export class SponsorsPage {
   openItem(item: Item,page: string) {
     this.navCtrl.push(page.toString(), {
       speaker: item,
-      company: this.company
+      company: this.company,
+      picG: this.picG,
+      picP: this.picP,
+      picS: this.picS
     });
 
     console.log(item);

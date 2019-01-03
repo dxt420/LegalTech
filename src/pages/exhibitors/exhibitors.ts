@@ -20,6 +20,7 @@ export class ExhibitorsPage {
   company;
 
   xx;
+  pic;
 
   groupedExhibitors = [];
 
@@ -74,10 +75,22 @@ export class ExhibitorsPage {
   }
 
 
+  getPic(a: string){
+    let aa = this.xx.find(i => i.name === a);
+    console.log(aa);
+    return aa.profilePic;
+  }
+  getPic2(a: string){
+    let aa = this.xx.find(i => i.name === a);
+    this.pic = aa.profilePic.toString();
+  }
+
+
   openItem(item: Item,page: string) {
     this.navCtrl.push(page.toString(), {
       exhibitor: item,
-      company: this.company
+      company: this.company,
+      pic:this.pic
     });
 
     console.log(item);

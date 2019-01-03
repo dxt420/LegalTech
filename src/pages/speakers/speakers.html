@@ -28,15 +28,17 @@
   <ion-item-group  *ngFor="let group of groupedSpeakers">
     <ion-item-divider color="secondary">{{ group.letter }}</ion-item-divider>
 
-        <ion-item no-lines class="transparent" *ngFor="let speaker of group.speakers, let i = index" (click)="getCompany2(speaker); openItem(speaker,'SpeakerDetailsPage')">
+        <ion-item no-lines class="transparent" *ngFor="let speaker of group.speakers, let i = index" (click)="getCompany2(speaker); getPic2(speaker); openItem(speaker,'SpeakerDetailsPage')">
             <ion-avatar item-start>
-              <!-- <img [src]="getPic(speaker)"> -->
-              <img [src]="'../../assets/img/trip.jpg'">
+              <img [src]="getPic(speaker)">
+              <!-- <img [src]="'../../assets/img/trip.jpg'"> -->
             </ion-avatar>
             <h2>{{ speaker }}</h2>
             <p>{{ getCompany(speaker) }}</p>
           
           </ion-item>
+
+
 
 
   

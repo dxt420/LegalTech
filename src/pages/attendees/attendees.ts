@@ -20,6 +20,7 @@ export class AttendeesPage {
   xx;
   groupedAttendees = [];
   company;
+  pic;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
@@ -71,11 +72,22 @@ export class AttendeesPage {
     });
   }
 
+  getPic(a: string){
+    let aa = this.xx.find(i => i.name === a);
+    console.log(aa);
+    return aa.profilePic;
+  }
+  getPic2(a: string){
+    let aa = this.xx.find(i => i.name === a);
+    this.pic = aa.profilePic.toString();
+  }
+
 
   openItem(item: Item,page: string) {
     this.navCtrl.push(page.toString(), {
       attendee: item,
-      company: this.company
+      company: this.company,
+      pic: this.pic
     });
 
     console.log(item);

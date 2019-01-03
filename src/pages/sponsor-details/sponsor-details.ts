@@ -17,6 +17,7 @@ export class SponsorDetailsPage {
 
   xx;
   company;
+  
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 

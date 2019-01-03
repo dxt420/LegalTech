@@ -24,8 +24,8 @@ export class HomePage {
     this.cardItems = [
       {
         user: {
-          avatar: 'assets/img/marty-avatar.png',
-          name: 'Marty McFly'
+          avatar: 'assets/img/w2.jpg',
+          name: 'Ms Akello Shilla'
         },
         date: 'November 5, 1955',
         image: 'assets/img/advance-card-bttf.png',
@@ -42,8 +42,8 @@ export class HomePage {
       },
       {
         user: {
-          avatar: 'assets/img/ian-avatar.png',
-          name: 'Dr. Ian Malcolm'
+          avatar: 'assets/img/w1.jpg',
+          name: 'Dr. Beatrice Mushanga'
         },
         date: 'June 28, 1990',
         image: 'assets/img/advance-card-jp.jpg',

@@ -17,10 +17,12 @@ export class ExhibitorsDetailsPage {
 
   xx;
   company;
+  pic;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.xx = navParams.get('exhibitor');
     this.company = navParams.get('company');
+    this.pic = navParams.get('pic');
     console.log(this.xx);
  
   }

@@ -15,9 +15,9 @@
         <ion-item-group   *ngFor="let group of groupedExhibitors">
           <ion-item-divider class="transparent2">{{ group.letter }}</ion-item-divider>
       
-              <ion-item no-lines class="transparent" *ngFor="let exhibitor of group.exhibitors, let i = index" (click)="getCompany2(exhibitor); openItem(exhibitor,'ExhibitorsDetailsPage')">
+              <ion-item no-lines class="transparent" *ngFor="let exhibitor of group.exhibitors, let i = index" (click)="getPic2(exhibitor); getCompany2(exhibitor); openItem(exhibitor,'ExhibitorsDetailsPage')">
                   <ion-avatar item-start>
-                    <img [src]="'../../assets/img/trip.jpg'">
+                    <img [src]="getPic(exhibitor)">
                   </ion-avatar>
                   <h2>{{ exhibitor }}</h2>
                   <p>{{ getCompany(exhibitor) }}</p>

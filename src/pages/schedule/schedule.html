@@ -24,7 +24,8 @@
                 <h1>{{ s.title }}</h1>
                 <div class="faces">
                 <ion-avatar  *ngFor="let a of s.speakers">
-                    <img [src]="'../../assets/img/trip.jpg'">
+                    <!-- <img [src]="'../../assets/img/trip.jpg'"> -->
+                    <img [src]="a.profilePic">
                   </ion-avatar>
                   <!-- <ion-avatar >
                       <img [src]="'../../assets/img/trip.jpg'">

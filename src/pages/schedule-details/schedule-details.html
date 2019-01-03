@@ -23,7 +23,7 @@
   <h3 style="color:rgb(74, 140, 245);">Speakers</h3>
   <ion-item no-lines class="transparent3" *ngFor="let speaker of xx.speakers">
     <ion-avatar item-start>
-      <img [src]="'../../assets/img/trip.jpg'">
+      <img [src]="speaker.profilePic">
     </ion-avatar>
     <h2>{{ speaker.name }}</h2>
     <p>{{ speaker.info }}</p>

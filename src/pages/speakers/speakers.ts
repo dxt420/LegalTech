@@ -18,6 +18,7 @@ export class SpeakersPage {
   item;
   details = [];
   company;
+  pic;
 
   searchTerm: string = '';
   searchItems: any;
@@ -79,6 +80,10 @@ export class SpeakersPage {
     let aa = this.xx.find(i => i.name === a);
     console.log(aa);
     return aa.profilePic;
+  }
+  getPic2(a: string){
+    let aa = this.xx.find(i => i.name === a);
+    this.pic = aa.profilePic.toString();
   }
 
   getCompany2(a: string){
@@ -156,7 +161,8 @@ export class SpeakersPage {
   openItem(item: Item,page: string) {
     this.navCtrl.push(page.toString(), {
       speaker: item,
-      company: this.company
+      company: this.company,
+      pic: this.pic
     });
 
     console.log(item);

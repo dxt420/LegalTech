@@ -18,7 +18,7 @@
     <ion-item-group>
         <ion-item-divider class="transparent2">Platinum</ion-item-divider>
     
-            <ion-item  class="transparent" no-lines (click)="getCompanyP(s.name); openItem(s,'SponsorDetailsPage')" *ngFor="let s of item.extra.sponsors.platinum">
+            <ion-item  class="transparent" no-lines (click)="getPicP2(s.name); getCompanyP(s.name); openItem(s,'SponsorDetailsPage')" *ngFor="let s of item.extra.sponsors.platinum">
                 <ion-avatar item-start>
                   <img [src]="'../../assets/img/trip.jpg'">
                 </ion-avatar> 
@@ -34,7 +34,7 @@
     
       <ion-item-group>
           <ion-item-divider class="transparent2">Gold</ion-item-divider>
-          <ion-item  class="transparent" no-lines (click)="getCompanyG(s.name); openItem(s,'SponsorDetailsPage')" *ngFor="let s of item.extra.sponsors.gold">
+          <ion-item  class="transparent" no-lines (click)="getPicG(s.name);  getCompanyG(s.name); openItem(s,'SponsorDetailsPage')" *ngFor="let s of item.extra.sponsors.gold">
               <ion-avatar item-start>
                 <img [src]="'../../assets/img/trip.jpg'">
               </ion-avatar> 
@@ -46,7 +46,7 @@
     
         <ion-item-group>
             <ion-item-divider class="transparent2">Silver</ion-item-divider>
-            <ion-item  class="transparent" no-lines (click)="getCompanyS(s.name); openItem(s,'SponsorDetailsPage')" *ngFor="let s of item.extra.sponsors.silver">
+            <ion-item  class="transparent" no-lines (click)="getPicS(s.name); getCompanyS(s.name); openItem(s,'SponsorDetailsPage')" *ngFor="let s of item.extra.sponsors.silver">
                 <ion-avatar item-start>
                   <img [src]="'../../assets/img/trip.jpg'">
                 </ion-avatar> 
