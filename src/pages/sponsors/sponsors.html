@@ -34,7 +34,7 @@
     
       <ion-item-group>
           <ion-item-divider class="transparent2">Gold</ion-item-divider>
-          <ion-item  class="transparent" no-lines (click)="getPicG(s.name);  getCompanyG(s.name); openItem(s,'SponsorDetailsPage')" *ngFor="let s of item.extra.sponsors.gold">
+          <ion-item  class="transparent" no-lines (click)="getPicG(s.name);  getCompanyG(s.name); openItem(s,'SponsorDetailsPage')" *ngFor="let s of sponsors | async">
               <ion-avatar item-start>
                 <img [src]="'../../assets/img/trip.jpg'">
               </ion-avatar> 

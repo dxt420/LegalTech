@@ -1,6 +1,13 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Item } from '../../models/item';
+// import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { AngularFireDatabaseModule, AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+// import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs-compat';
+// import { map } from 'rxjs-compat/operators';
+import { GoldSponsor } from '../../models/sponsorGold';
+import { DataProvider } from '../../providers/data/data';
 
 /**
  * Generated class for the SponsorsPage page.
@@ -16,6 +23,10 @@ import { Item } from '../../models/item';
 })
 export class SponsorsPage {
 
+
+  sponsors:Observable<GoldSponsor[]>;
+  // sponsorsListRef: AngularFireList<GoldSponsor>;
+
   item: any;
   company;
   platinum;
@@ -26,12 +37,27 @@ export class SponsorsPage {
   picG;
   picP;
   picS;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private goldSponsorList: DataProvider) {
+    // this.sponsors = afDatabase.list('sponsors/gold').valueChanges();
     this.item = navParams.get('item');
     this.platinum = navParams.get('platinum');
-    this.gold = navParams.get('gold');
+    // this.gold = navParams.get('gold');
+    // this.sponsors = afDatabase.list('/sponsors/gold').valueChanges();
     this.silver = navParams.get('silver');
-    // console.log( this.xx );
+
+
+    this.sponsors = this.goldSponsorList.getSponsorList()
+      .snapshotChanges()
+      .map(
+      changes => {
+        return changes.map(c => ({
+          key: c.payload.key, ...c.payload.val()
+        }))
+      });
+
+
+
+    console.log( this.sponsors );
   }
 
   ionViewDidLoad() {
@@ -97,7 +123,7 @@ export class SponsorsPage {
       picP: this.picP,
       picS: this.picS
     });
-
+ 
     console.log(item);
     console.log(this.company);
   }

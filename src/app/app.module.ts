@@ -15,6 +15,25 @@ import { MyApp } from './app.component';
 import { DataProvider } from '../providers/data/data';
 import { SearchPipe } from '../pipes/search/search';
 
+
+
+// Import the AF2 Module
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+ 
+ 
+// AF2 Settings
+export const firebaseConfig = {
+  apiKey: "AIzaSyDFNW8MN6rPrdwJnxV1S_RLPX2dgg4gVNg",
+  authDomain: "legaltech-7887b.firebaseapp.com",
+  databaseURL: "https://legaltech-7887b.firebaseio.com",
+  projectId: "legaltech-7887b",
+  storageBucket: "legaltech-7887b.appspot.com",
+  messagingSenderId: "470663134509"
+};
+
+
+
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
 export function createTranslateLoader(http: HttpClient) {
@@ -59,6 +78,8 @@ export function provideSettings(storage: Storage) {
       }
     }),
     IonicStorageModule.forRoot(),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule
     // SearchPipe.forRoot()
   ],
   bootstrap: [IonicApp],

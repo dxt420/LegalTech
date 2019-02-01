@@ -1,5 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+// import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import firebase from 'firebase/app';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { GoldSponsor } from '../../models/sponsorGold';
 
 /*
   Generated class for the DataProvider provider.
@@ -10,8 +13,19 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class DataProvider {
 
-  constructor(public http: HttpClient) {
-    console.log('Hello DataProvider Provider');
-  }
+  // constructor(public http: HttpClient) {
+  //   console.log('Hello DataProvider Provider');
+  // }
+
+
+  public sponsorsListRef = this.db.list<GoldSponsor>('sponsors/gold');
+
+
+  constructor(private db: AngularFireDatabase) { }
+
+
+  getSponsorList() {
+    return this.sponsorsListRef;
+}
 
 }
